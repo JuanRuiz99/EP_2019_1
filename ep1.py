@@ -61,6 +61,16 @@ def main():
 
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
+        titulo_cenario= cenario_atual["titulo"]
+        print(titulo_cenario)
+        
+        num_de_traco = "-" * len(titulo_cenario)
+        print(num_de_traco)
+        
+        descricao_cenario= cenario_atual["descricao"]
+        print(descricao_cenario)
+        
+        
 
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
