@@ -71,20 +71,17 @@ def main():
         print(descricao_cenario)
         
 
-        opcoes = cenario_atual['opcoes']
-        if len(opcoes) == 0:
+    opcoes = cenario_atual["Atacar","Conversar","Misericórdia","Correr"]
+    if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
-        else:
-
-            # Aluno B: substitua este comentário e a linha abaixo pelo código
-            # para pedir a escolha do usuário.
+    else:
             escolha = input("O que você vai fazer agora? ")
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             else:
-                print("Sua indecisão foi sua ruína!")
+                printprint("Sua indecisão foi sua ruína! Tudo o que você tinha que fazer era selecionar a M@***** opção")
                 game_over = True
 
     print("Você morreu!")
