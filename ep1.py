@@ -11,7 +11,10 @@ def carregar_cenarios():
             "descricao": "Voce esta no saguao de entrada do insper",
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
+                "biblioteca": "Ir para a biblioteca",
+                "FabLab": "Mudar de prédio e ir até o FabLab",
+                "Sala 404": "Tomar o elevador para o 4 andar e procurar pela Sala 404"
+                
             }
         },
         "andar professor": {
@@ -33,10 +36,37 @@ def carregar_cenarios():
             "titulo": "Caverna da tranquilidade",
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
+                "inicio": "Voltar para o saguao de entrada",
+                "expandir conhecimento": "Pegar domo"
             }
-        }
-    }
+        },
+        'FabLab': {
+            'titulo': 'oficina de milagres',
+            'descricao': 'um lugar para a criação de objetos poderosos, nela podem ser aperfeiçoados os conhecimentos de Dym ("Introdução à engenharia", de NatDes)',
+            'opcoes': {
+                'Criar': 'Cria protótipos de objetos poderosos que permitem que voce faça iterações e aprimore seus conhecimentos de prototipagem.',
+                'Sair': 'Sai da oficina'
+                    },
+                },
+        'Sala 404': {
+            'titulo': 'Limbo',
+            'descricao': 'Apenas a entrada foi encontrada, mas supostamente é o laboratório de computação',
+            'opcoes': {
+                'Entrar': 'você entra na Sala', 
+                'Gritar na porta': 'voce grita em frente a porta da Sala',
+                'Voltar': 'Voce ignora a sala e volta para sua jornada'
+                    }
+                },
+        'Aquários': {
+            'titulo': 'Aquarium',
+            'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
+            'opçoes': {
+                    'Trabalhar': 'Trabalhar no EP',
+                    'Sair': 'Sair do aquarium'
+                    }
+                    }
+            }
+            
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
