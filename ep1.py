@@ -110,15 +110,16 @@ def main():
         cenario_atual = cenarios[nome_cenario_atual]
         
         if nome_cenario_atual != 'inicio': #impossivel ser atacado indo para o saguao, pois ele funciona como uma "safe zone"
-            chance_batalha = random.randint(1,20)
-            if chance_batalha > 10:
-                print("----------Um veterano selvagem apareceu! Prepare-se para batlha!----------")
+            chance_batalha = random.randint(1,100)
+            if chance_batalha > 70:
+                print("\n----------Um veterano selvagem apareceu! Prepare-se para batlha!----------\n")
+                
         
 
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
         titulo_cenario= cenario_atual["titulo"]
-        print(titulo_cenario)
+        print('\n',titulo_cenario)
         
         num_de_traco = "-" * len(titulo_cenario)
         print(num_de_traco)
