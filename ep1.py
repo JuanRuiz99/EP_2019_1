@@ -12,8 +12,8 @@ def carregar_cenarios():
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca",
-                "FabLab": "Mudar de prédio e ir até o FabLab",
-                "Sala 404": "Tomar o elevador para o 4 andar e procurar pela Sala 404"
+                "fablab": "Mudar de prédio e ir até o FabLab",
+                "sala 404": "Tomar o elevador para o 4 andar e procurar pela Sala 404"
                 
             }
         },
@@ -58,17 +58,25 @@ def carregar_cenarios():
             'opcoes': {
                 'criar': 'Cria protótipos de objetos poderosos que permitem que voce faça iterações e aprimore seus conhecimentos de prototipagem.',
                 'inicio': 'Sai da oficina e retorna ao inicio'
-                    },
+                    }
                 },
         'sala 404': {
             'titulo': 'Limbo',
             'descricao': 'Apenas a entrada foi encontrada, mas supostamente é o laboratório de computação',
             'opcoes': {
-                'entrar': 'você entra na Sala', 
-                'gritar na porta': 'voce grita em frente a porta da Sala',
+                'entrar sala 404': 'você entra na sala', 
                 'inicio': 'Voce ignora a sala e volta para o saguao'
                     }
                 },
+            
+        "entrar sala 404": {
+            "titulo": "Great White",
+            "descricao": "Ao entrar na sala tudo se transforma em branco e a porta desaparece."
+                        "Voce se perdeu no Limbo para os restos de seus dias.",
+            "opcoes": {}
+       },
+            
+            
         'aquários': {
             'titulo': 'Aquarium',
             'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
