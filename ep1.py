@@ -17,6 +17,16 @@ def carregar_cenarios():
                 
             }
         },
+        "sala misteriosa": {
+                "titulo": "Sala teleportadora",
+                               "descricao": "Voce entra em uma sala pequena com nada alem de uma maquina com um portal no centro",
+                               "opcoes": { 
+                                       "keypad": "Arriscar e digitar o nome da sala no keypad antes de entrar no portal",
+                                       "biblioteca": "Retornar a biblioteca"
+           }
+       },
+            
+            
         "andar professor": {
             "titulo": "Andar do desespero",
             "descricao": "Voce chegou ao andar da sala do seu professor",
@@ -37,32 +47,34 @@ def carregar_cenarios():
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
                 "inicio": "Voltar para o saguao de entrada",
-                "expandir conhecimento": "Pegar domo"
+                "expandir conhecimento": "Pegar domo",
+                "sala misteriosa": "Abrir uma porta sombria em um canto obscuro da biblioteca" 
+
             }
         },
-        'FabLab': {
-            'titulo': 'oficina de milagres',
-            'descricao': 'um lugar para a criação de objetos poderosos, nela podem ser aperfeiçoados os conhecimentos de Dym ("Introdução à engenharia", de NatDes)',
+        'fablab': {
+            'titulo': 'Oficina de milagres',
+            'descricao': 'Um lugar para a criação de objetos poderosos, nela podem ser aperfeiçoados os conhecimentos de Dym ("Introdução à engenharia", de NatDes)',
             'opcoes': {
-                'Criar': 'Cria protótipos de objetos poderosos que permitem que voce faça iterações e aprimore seus conhecimentos de prototipagem.',
-                'Sair': 'Sai da oficina'
+                'criar': 'Cria protótipos de objetos poderosos que permitem que voce faça iterações e aprimore seus conhecimentos de prototipagem.',
+                'inicio': 'Sai da oficina e retorna ao inicio'
                     },
                 },
-        'Sala 404': {
+        'sala 404': {
             'titulo': 'Limbo',
             'descricao': 'Apenas a entrada foi encontrada, mas supostamente é o laboratório de computação',
             'opcoes': {
-                'Entrar': 'você entra na Sala', 
-                'Gritar na porta': 'voce grita em frente a porta da Sala',
-                'Voltar': 'Voce ignora a sala e volta para sua jornada'
+                'entrar': 'você entra na Sala', 
+                'gritar na porta': 'voce grita em frente a porta da Sala',
+                'inicio': 'Voce ignora a sala e volta para o saguao'
                     }
                 },
-        'Aquários': {
+        'aquários': {
             'titulo': 'Aquarium',
             'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
             'opçoes': {
-                    'Trabalhar': 'Trabalhar no EP',
-                    'Sair': 'Sair do aquarium'
+                    'trabalhar': 'Trabalhar no EP',
+                    'inicio': 'Sair do aquarium e voltar para o inicio'
                     }
                     }
             }
@@ -116,6 +128,18 @@ def main():
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+                if escolha == 'keypad':
+                    escolha2 = input("Digite o nome da sala em que quer teleportar: ")
+                    encontrou_titulo=True
+                    for dic1, dic2 in cenarios.items():
+                        if escolha2 == dic2["titulo"]:      
+                            print("----------Deu certo! Se segure!----------")
+                            nome_cenario_atual = dic1
+                            encontrou_titulo = False
+
+                    if encontrou_titulo == True:
+                        print("Errou o nome da sala e foi teleportado para o espaco!")
+                        game_over = True
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
