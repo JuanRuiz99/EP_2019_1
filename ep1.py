@@ -4,6 +4,8 @@
 # - aluno A: Juan Greco Ruiz, juangr@al.insper.edu.br
 # - aluno B: Giovanni Augustho Rozatti, giovanniar@al.insper.edu.br
 
+import random
+
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -79,7 +81,7 @@ def carregar_cenarios():
             'titulo': 'Aquarium',
             'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
             'opçoes': {
-                    'trabalhar': 'Trabalhar no EP',
+                    'trabalhar': 'Trabalhar no EP furiosamente ate 23:59:59',
                     'inicio': 'Sair do aquarium e voltar para o inicio'
                     }
                     }
@@ -106,6 +108,12 @@ def main():
     game_over = False
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
+        
+        if nome_cenario_atual != 'inicio': #impossivel ser atacado indo para o saguao, pois ele funciona como uma "safe zone"
+            chance_batalha = random.randint(1,20)
+            if chance_batalha > 10:
+                print("----------Um veterano selvagem apareceu! Prepare-se para batlha!----------")
+        
 
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
@@ -118,6 +126,7 @@ def main():
         descricao_cenario= cenario_atual["descricao"]
         print(descricao_cenario)
         
+        print("Escolha sua opção:\n")
 
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
@@ -128,9 +137,9 @@ def main():
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
            
-            print(opcoes)
+            print('\n'.join("{}: {}".format(k, v) for k, v in opcoes.items()))
         
-            escolha = input("Qual voce escolhe?: ")
+            escolha = input("O que você quer fazer?: ")
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
