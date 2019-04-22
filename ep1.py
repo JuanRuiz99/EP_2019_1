@@ -13,7 +13,7 @@ def carregar_cenarios():
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca",
                 "fablab": "Mudar de prédio e ir até o FabLab",
-                "sala 404": "Tomar o elevador para o 4 andar e procurar pela Sala 404"
+                #"sala 404": "Tomar o elevador para o 4 andar e procurar pela Sala 404"# ----- SALA SECRETA----
                 
             }
         },
@@ -47,7 +47,6 @@ def carregar_cenarios():
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
                 "inicio": "Voltar para o saguao de entrada",
-                "expandir conhecimento": "Pegar domo",
                 "sala misteriosa": "Abrir uma porta sombria em um canto obscuro da biblioteca" 
 
             }
@@ -56,12 +55,11 @@ def carregar_cenarios():
             'titulo': 'Oficina de milagres',
             'descricao': 'Um lugar para a criação de objetos poderosos, nela podem ser aperfeiçoados os conhecimentos de Dym ("Introdução à engenharia", de NatDes)',
             'opcoes': {
-                'criar': 'Cria protótipos de objetos poderosos que permitem que voce faça iterações e aprimore seus conhecimentos de prototipagem.',
                 'inicio': 'Sai da oficina e retorna ao inicio'
                     }
                 },
-        'sala 404': {
-            'titulo': 'Limbo',
+        'Limbo': {
+            'titulo': 'sala 404',
             'descricao': 'Apenas a entrada foi encontrada, mas supostamente é o laboratório de computação',
             'opcoes': {
                 'entrar sala 404': 'você entra na sala', 
@@ -71,8 +69,8 @@ def carregar_cenarios():
             
         "entrar sala 404": {
             "titulo": "Great White",
-            "descricao": "Ao entrar na sala tudo se transforma em branco e a porta desaparece."
-                        "Voce se perdeu no Limbo para os restos de seus dias.",
+            "descricao": "Ao entrar na sala tudo se transforma em branco e a porta desaparece em um piscar de olhos. "
+                        "Voce se perdeu no Limbo e ficara flutuando no 'Great White' para os restos de seus dias.",
             "opcoes": {}
        },
             
