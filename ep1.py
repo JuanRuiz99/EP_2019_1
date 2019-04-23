@@ -49,7 +49,8 @@ def carregar_cenarios():
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
                 "inicio": "Voltar para o saguao de entrada",
-                "sala misteriosa": "Abrir uma porta sombria em um canto obscuro da biblioteca" 
+                "sala misteriosa": "Abrir uma porta sombria em um canto obscuro da biblioteca",
+                "aquarios": "entrar em um dos aquarios"
 
             }
         },
@@ -78,10 +79,10 @@ def carregar_cenarios():
        },
             
             
-        'aquários': {
+        'aquarios': {
             'titulo': 'Aquarium',
             'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
-            'opçoes': {
+            'opcoes': {
                     'trabalhar': 'Trabalhar no EP furiosamente ate 23:59:59',
                     'inicio': 'Sair do aquarium e voltar para o inicio'
                     }
@@ -237,7 +238,10 @@ def main():
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
-                if escolha == 'keypad':
+                if escolha == 'trabalhar':
+                    print("Muito bem! Terminou a tempo!")
+                    game_over = True
+                elif escolha == 'keypad':
                     escolha2 = input("Digite o nome da sala em que quer teleportar: ")
                     encontrou_titulo=True
                     for dic1, dic2 in cenarios.items():
