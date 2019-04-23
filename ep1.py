@@ -4,7 +4,7 @@
 # - aluno A: Juan Greco Ruiz, juangr@al.insper.edu.br
 # - aluno B: Giovanni Augustho Rozatti, giovanniar@al.insper.edu.br
 
-import random
+from random import randint
 
 def carregar_cenarios():
     cenarios = {
@@ -57,7 +57,8 @@ def carregar_cenarios():
             'titulo': 'Oficina de milagres',
             'descricao': 'Um lugar para a criação de objetos poderosos, nela podem ser aperfeiçoados os conhecimentos de Dym ("Introdução à engenharia", de NatDes)',
             'opcoes': {
-                'inicio': 'Sai da oficina e retorna ao inicio'
+                'inicio': 'Sai da oficina e retorna ao inicio',
+                'entrar fablab': 'Entra na oficina'
                     }
                 },
         'Limbo': {
@@ -104,16 +105,13 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
-
+    
+    
     game_over = False
+
     while not game_over:
+
         cenario_atual = cenarios[nome_cenario_atual]
-        
-        if nome_cenario_atual != 'inicio': #impossivel ser atacado indo para o saguao, pois ele funciona como uma "safe zone"
-            chance_batalha = random.randint(1,100)
-            if chance_batalha > 70:
-                print("\n----------Um veterano selvagem apareceu! Prepare-se para batlha!----------\n")
-                
         
 
         # Aluno A: substitua este comentário pelo código para imprimir 
@@ -141,6 +139,101 @@ def main():
             print('\n'.join("{}: {}".format(k, v) for k, v in opcoes.items()))
         
             escolha = input("O que você quer fazer?: ")
+            
+            if nome_cenario_atual != 'inicio': #impossivel ser atacado indo para o saguao, pois ele funciona como uma "safe zone"
+                chance_batalha = randint(1,10)
+                if chance_batalha > 4:
+                    print("\n----------Um veterano selvagem apareceu! Prepare-se para batlha!----------\n")
+                    Player_HP=30
+                    Vet_HP = 20
+                    
+                    Batalha1 = input("Você quer batalhar contra o veterando? s/n: ")
+    
+                    if Batalha1 != "s" and Batalha1 !="n":
+                        print ("Comando Inválido")
+                        Batalha1 = input("Você quer batalhar? s/n: ")
+                    while Batalha1 == "s" and Player_HP>0 and Vet_HP>0:
+                        Player_Damage=randint(10,15)
+                        Vet_Damage=randint(8,16)
+                        Player_HP -= Vet_Damage
+                        Vet_HP -= Player_Damage
+                        print ("Seu HP é {0} ponto(s) de vida".format(Player_HP))
+                        print ("O HP do inimigo é {0} ponto(s) de vida".format(Vet_HP))
+                        if Player_HP > 0 and Vet_HP > 0:     
+                            Batalha1 = input("Continuar Batalhando? s/n: ")
+            
+                    if Batalha1 == "s" and Player_HP>0 and Vet_HP>0:
+                        Player_HP -= Vet_Damage
+                        Vet_HP -= Player_Damage
+                        print ("Seu HP é {0} pontos de vida".format(Player_HP))
+                        print ("O HP do inimigo é {0} pontos de vida".format(Vet_HP))
+                        Batalha1 = input("Continuar Batalhando? s/n: ")
+                    elif Batalha1 == "s" and Player_HP<=0 and Vet_HP>0:
+                        print ("Você perdeu")
+                        game_over=True    
+                    elif Batalha1 == "s" and Player_HP>0 and Vet_HP<=0:
+                        print ("Você venceu")
+                    elif Batalha1 == "s" and Player_HP<=0 and Vet_HP<=0:
+                        print("Bem, você morreu. Mas levou seu inimigo junto")
+                        game_over= True
+
+                    if Batalha1 == "n":
+                        print("Você tentou fugir, porém a chatisse do veterando te matou!")
+                        game_over=True
+                    
+            if escolha == 'entrar fablab':
+                Player_HP=30
+                Prof_HP = 27
+    
+                print ("Você encontra seu professor")
+                print ("Ele te faz uma proposta: se voce derrotar ele a entrega do EP vai ser adiada")
+                print ("Se isso não acontecer você morre")
+                Batalha = input("Você quer batalhar contra seu professor? s/n: ")
+    
+                if Batalha != "s" and Batalha !="n":
+                    print ("Comando Inválido")
+                    Batalha = input("Você quer batalhar? s/n: ")
+                while Batalha == "s" and Player_HP>0 and Prof_HP>0:
+                    Player_Damage=randint(10,15)
+                    Prof_Damage=randint(10,15)
+                    Player_HP -= Prof_Damage
+                    Prof_HP -= Player_Damage
+                    print ("Seu HP é {0} ponto(s) de vida".format(Player_HP))
+                    print ("O HP do inimigo é {0} ponto(s) de vida".format(Prof_HP))
+                    if Player_HP > 0 and Prof_HP > 0:     
+                        Batalha = input("Continuar Batalhando? s/n: ")
+        
+                if Batalha == "s" and Player_HP>0 and Prof_HP>0:
+                    Player_HP -= Prof_Damage
+                    Prof_HP -= Player_Damage
+                    print ("Seu HP é {0} pontos de vida".format(Player_HP))
+                    print ("O HP do inimigo é {0} pontos de vida".format(Prof_HP))
+                    Batalha = input("Continuar Batalhando? s/n: ")
+                elif Batalha == "s" and Player_HP<=0 and Prof_HP>0:
+                    print ("Você perdeu")
+                    Batalha = "over"
+                    game_over=True    
+                elif Batalha == "s" and Player_HP>0 and Prof_HP<=0:
+                    print ("Você venceu")
+                    Batalha = "Over"
+                elif Batalha == "s" and Player_HP<=0 and Prof_HP<=0:
+                    print("Bem, você morreu. Mas levou seu inimigo junto")
+                    game_over= True
+                    Batalha = "over"
+    
+                if Batalha == "Over" :
+                    print("A batalha acabou, seu professor foi derrotado")
+                    print("Infelizmente, ele não viveu para atualizar a nova data de entrega do EP no Blackboard")
+                    print("E ainda mais infelizmente, como você o matou, você está sendo preso por assassinato.")
+                    print("Parabéns!! Você foi capaz de fazer tudo do pior jeito possivel")
+                    game_over=True
+                if Batalha == "n":
+                    print ("Você decide conversar ao invés de lutar")
+                    print("É super efetivo")
+                    print("O professor apresenta um argumento lógico sobre o motivo de não poder adiar a entrega do EP")
+                    print("Mas ao observar que voce optou por não violencia em sua jornada, ele decide adiar o EP")
+                    print("Você venceu!!")
+                    game_over=True
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
@@ -160,7 +253,7 @@ def main():
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
 
-    print("Você morreu!")
+    print("Game Over!")
 
 
 # Programa principal.
