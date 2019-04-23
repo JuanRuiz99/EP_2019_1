@@ -84,7 +84,7 @@ def carregar_cenarios():
             'descricao': 'Lugar isolado do espaço-tempo, microcosmo dotado de suas próprias regras',
             'opcoes': {
                     'trabalhar': 'Trabalhar no EP furiosamente ate 23:59:59',
-                    'inicio': 'Sair do aquarium e voltar para o inicio'
+                    'biblioteca': 'Sair do aquario e voltar para a biblioteca'
                     }
                     }
             }
